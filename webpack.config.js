@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const config = {
     entry: './src/index.tsx',
@@ -53,7 +54,10 @@ const config = {
         }
     },
     plugins: [
-        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /fr/)
+        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /fr/),
+        new HtmlWebpackPlugin({
+            template: 'public/index.html'
+          })
     ]
 };
 
